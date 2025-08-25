@@ -73,6 +73,14 @@ node_modules/
 *.csv
 *.xlsx
 *.pdf
+
+# Allow documentation screenshots
+!**/Screenshot*.png
+!**/screenshot*.png
+!docs/**/*.png
+!csv-download-tool/**/*.png
+
+# Block other images (use Git LFS if needed)
 *.png
 *.jpg
 *.jpeg
