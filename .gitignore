@@ -1,0 +1,85 @@
+# Snowflake Intelligence Custom Tools - .gitignore
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Snowflake connection files (NEVER commit these)
+config.json
+credentials.json
+*.key
+*.pem
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Test outputs
+test_results/
+test_outputs/
+
+# Personal configuration
+personal_config/
+my_config/
+
+# Backup files
+*.bak
+*.backup
+
+# Documentation build files
+docs/_build/
+site/
+
+# Python cache (if using Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Node modules (if using any JS tools)
+node_modules/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Large files (use Git LFS if needed)
+*.csv
+*.xlsx
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Exclude any files with sensitive data
+*password*
+*secret*
+*private*
+*credential*
