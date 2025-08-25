@@ -91,7 +91,7 @@ In the **Instructions** section:
    If the user asks for a csv format use the csv_download tool provide the download link.
    ```
 
-![Instructions Configuration](screenshots/instructions_config.png)
+![Instructions Configuration](Screenshot%202025-08-25%20at%2011.04.46%20AM.png)
 
 **Purpose:** This tells the agent when and how to use the CSV download tool.
 
@@ -110,7 +110,7 @@ In the **Sample questions** section:
 2. Scroll down to **Custom tools** section
 3. Click **+ Add** to add a new custom tool
 
-![Tools Section](screenshots/tools_section.png)
+![Tools Section](Screenshot%202025-08-25%20at%2011.05.02%20AM.png)
 
 ### Step 5: Configure the CSV Download Tool
 
@@ -126,7 +126,7 @@ In the **Edit custom tool** dialog, configure the following:
 #### Custom Tool Identifier:
 - **Custom tool identifier:** `SNOWFLAKE_INTELLIGENCE.PUBLIC.CSV_TO_PRESIGNED_URL`
 
-![Custom Tool Configuration](screenshots/custom_tool_config.png)
+![Custom Tool Configuration](Screenshot%202025-08-25%20at%2011.05.19%20AM.png)
 
 ### Step 6: Configure Parameters
 
@@ -142,7 +142,7 @@ In the **Parameters** section:
      When the user receives a CSV output and ask to download, pass the entire raw text to this custom tool (procedure) and provide back the URL to download
      ```
 
-![Parameter Configuration](screenshots/parameter_config.png)
+![Parameter Configuration](Screenshot%202025-08-25%20at%2011.05.34%20AM.png)
 
 ### Step 7: Save Configuration
 
