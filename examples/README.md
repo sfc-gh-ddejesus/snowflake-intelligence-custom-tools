@@ -26,13 +26,14 @@ Each template includes:
 
 When creating new tools:
 1. Start with a template from this directory
-2. Follow the [contributing guidelines](../docs/contributing.md)
+2. Follow the [documentation guidelines](../docs/README.md)
 3. Include comprehensive documentation
 4. Add test cases and examples
 5. Follow security best practices
 
 ## Additional Resources
 
-- [General Deployment Guide](../docs/deployment-guide.md)
-- [Troubleshooting Guide](../docs/troubleshooting.md)
+- [CSV Download Tool Documentation](../csv-download-tool/README.md)
+- [Setup Guide](../csv-download-tool/snowflake_intelligence_setup_guide.md)
+- [Deployment Checklist](../csv-download-tool/deployment_checklist.md)
 - [CSV Download Tool Example](../csv-download-tool/)

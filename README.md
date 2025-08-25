@@ -63,14 +63,14 @@ CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
 
 ### Repository Navigation
 
-- 📖 **New to custom tools?** Start with [`docs/deployment-guide.md`](./docs/deployment-guide.md)
+- 📖 **New to custom tools?** Start with [`csv-download-tool/README.md`](./csv-download-tool/README.md)
 - 🎯 **Want to add CSV downloads?** Go to [`csv-download-tool/`](./csv-download-tool/)
-- 🔧 **Having issues?** Check [`docs/troubleshooting.md`](./docs/troubleshooting.md)
-- 🤝 **Want to contribute?** See [`docs/contributing.md`](./docs/contributing.md)
+- 🔧 **Having issues?** Check [`csv-download-tool/deployment_checklist.md`](./csv-download-tool/deployment_checklist.md)
+- 🤝 **Want to contribute?** See [`docs/README.md`](./docs/README.md)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](./docs/contributing.md) for details.
+We welcome contributions! Please see our [Documentation](./docs/README.md) for details.
 
 ## 📄 License
 

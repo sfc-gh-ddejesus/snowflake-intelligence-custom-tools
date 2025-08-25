@@ -4,9 +4,12 @@ This directory contains general documentation for all Snowflake Intelligence cus
 
 ## Contents
 
-- [Contributing Guide](contributing.md) - How to contribute to this repository
-- [Deployment Guide](deployment-guide.md) - General deployment patterns and best practices
-- [Troubleshooting Guide](troubleshooting.md) - Common issues and solutions
+This documentation directory provides general guidance for all custom tools. For specific tool documentation, see the individual tool directories.
+
+**Available Resources:**
+- **CSV Download Tool:** Complete documentation in [`../csv-download-tool/`](../csv-download-tool/)
+- **Setup Guide:** Step-by-step configuration in [`../csv-download-tool/snowflake_intelligence_setup_guide.md`](../csv-download-tool/snowflake_intelligence_setup_guide.md)
+- **Deployment Checklist:** Verification steps in [`../csv-download-tool/deployment_checklist.md`](../csv-download-tool/deployment_checklist.md)
 
 ## Quick Links
 
