@@ -68,68 +68,9 @@ CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
 - 🔧 **Having issues?** Check [`docs/troubleshooting.md`](./docs/troubleshooting.md)
 - 🤝 **Want to contribute?** See [`docs/contributing.md`](./docs/contributing.md)
 
-## 📋 Tool Development Standards
-
-Each tool in this repository follows consistent standards:
-
-### Required Files
-- `README.md` - Tool documentation and usage guide
-- `deployment_checklist.md` - Step-by-step deployment verification
-- SQL files for procedures/functions
-- Test examples and verification scripts
-- Snowflake Intelligence UI configuration guide
-
-### Quality Standards
-- ✅ **Production-ready code** with error handling
-- ✅ **Comprehensive documentation** with examples
-- ✅ **Security best practices** (permissions, validation)
-- ✅ **Automated testing** capabilities
-- ✅ **Clear deployment instructions**
-
-## 🔮 Roadmap
-
-### Planned Tools
-- [ ] **Excel Export Tool** - Generate Excel files with formatting
-- [ ] **Data Visualization Tool** - Create charts and graphs
-- [ ] **Email Integration** - Send reports via email
-- [ ] **Slack Notifications** - Post results to Slack channels
-- [ ] **Custom Analytics** - Specialized analysis functions
-
-### Enhancements
-- [ ] Automated deployment scripts
-- [ ] CI/CD integration templates
-- [ ] Performance monitoring tools
-- [ ] Advanced security features
-
 ## 🤝 Contributing
 
-We welcome contributions! Whether you're:
-- 🐛 **Reporting bugs** in existing tools
-- 💡 **Suggesting new features** or tools
-- 🔧 **Improving documentation**
-- 🚀 **Adding new custom tools**
-
-Please see our [Contributing Guide](./docs/contributing.md) for details.
-
-### Quick Contribution Steps
-1. Fork this repository
-2. Create a feature branch
-3. Follow our development standards
-4. Add comprehensive documentation
-5. Test thoroughly
-6. Submit a pull request
-
-## 📞 Support
-
-### Documentation
-- **Tool-specific issues:** Check the tool's README and troubleshooting section
-- **General questions:** See [`docs/`](./docs/) folder
-- **Setup problems:** Use the deployment checklists
-
-### Community
-- **Discussions:** Use GitHub Discussions for questions and ideas
-- **Issues:** Report bugs and feature requests via GitHub Issues
-- **Wiki:** Additional resources and community examples
+We welcome contributions! Please see our [Contributing Guide](./docs/contributing.md) for details.
 
 ## 📄 License
 
