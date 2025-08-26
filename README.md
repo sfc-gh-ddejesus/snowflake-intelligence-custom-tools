@@ -36,15 +36,9 @@ snowflake-intelligence-custom-tools/
 - ✅ Comprehensive error handling
 
 **Quick Start:**
-```sql
--- 1. Create infrastructure (one-time setup)
-CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (csv_data STRING);
-CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
-
--- 2. Deploy procedure (see csv-download-tool/ folder)
--- 3. Configure in Snowflake Intelligence UI
--- 4. Users can now request CSV downloads!
-```
+- 📖 Read the complete setup guide in [`csv-download-tool/README.md`](./csv-download-tool/README.md)
+- 🚀 Follow the deployment checklist in [`csv-download-tool/deployment_checklist.md`](./csv-download-tool/deployment_checklist.md)
+- ⚙️ Configure the tool using [`csv-download-tool/snowflake_intelligence_setup_guide.md`](./csv-download-tool/snowflake_intelligence_setup_guide.md)
 
 ## 🚀 Getting Started
 
