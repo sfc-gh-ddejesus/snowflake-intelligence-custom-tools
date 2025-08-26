@@ -8,22 +8,30 @@ This directory contains custom tools and procedures for Snowflake Intelligence p
 A Snowflake stored procedure that converts CSV string content into downloadable files with presigned URLs. Perfect for Cortex AI agents that need to provide users with downloadable CSV data.
 
 ### Files
-- `csv_upload_procedure.sql` - The main stored procedure implementation
+- `csv_to_presigned_url_procedure.sql` - The main stored procedure implementation
 - `test_examples.sql` - Comprehensive test cases and examples
+- `table_check.sql` - SQL commands to verify prerequisites
 - `README.md` - This documentation file
+- `deployment_checklist.md` - Step-by-step deployment guide
+- `snowflake_intelligence_setup_guide.md` - Complete setup instructions
 
 ### Prerequisites
 
 **⚠️ CRITICAL:** These objects MUST be created before the tool will work:
 
 ```sql
--- Create the temporary table for CSV processing
-CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (csv_data STRING);
+-- Create the temporary table for CSV processing with session isolation
+CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (
+    session_id STRING NOT NULL,
+    csv_data STRING NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
+);
 
--- Create the stage for file storage
-CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
+-- Create the stage for file storage with SSE encryption
+CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES
+  ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 
--- Deploy the stored procedure (see csv_upload_procedure.sql)
+-- Deploy the stored procedure (see csv_to_presigned_url_procedure.sql)
 ```
 
 **Required Permissions:** The Snowflake Intelligence role MUST have:
@@ -42,12 +50,20 @@ CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
 **Output:** Presigned download URL (valid for 1 hour)
 
 **Workflow:**
-1. Takes CSV string input
-2. Generates unique filename with timestamp
-3. Stores CSV content in temporary table
-4. Copies content to stage as properly formatted CSV file
-5. Generates presigned URL for download
-6. Returns URL to user
+1. Takes CSV string input and validates it
+2. Gets current session ID for user isolation
+3. Generates unique filename with timestamp and UUID
+4. Stores CSV content in session-isolated temporary table
+5. Copies content to stage as properly formatted CSV file
+6. Cleans up session data from temporary table
+7. Generates presigned URL for download
+8. Returns URL to user
+
+**Concurrency Features:**
+- **Session Isolation:** Each user session gets isolated data storage
+- **Automatic Cleanup:** Data is removed from temp table after file creation
+- **Concurrent Safe:** Multiple users can use the tool simultaneously
+- **Error Handling:** Session data is cleaned up even on errors
 
 ### Usage Examples
 
@@ -108,10 +124,13 @@ The procedure includes comprehensive error handling:
 
 ### Security Features
 
-- **Session-scoped:** Uses temporary table that's cleared on each use
-- **Unique filenames:** Prevents file conflicts and overwrites
-- **Presigned URLs:** Secure, time-limited access
-- **Input validation:** Prevents empty or malformed content
+- **Session Isolation:** Each user session has isolated data storage
+- **Automatic Cleanup:** Temporary data is removed after processing
+- **Unique Filenames:** Prevents file conflicts and overwrites
+- **Presigned URLs:** Secure, time-limited access (1 hour expiration)
+- **Input Validation:** Prevents empty or malformed content
+- **SSE Encryption:** Files are encrypted at rest in the stage
+- **Concurrent Safe:** Multiple users can't interfere with each other's data
 
 ### Troubleshooting
 
@@ -147,3 +166,8 @@ CALL csv_to_presigned_url('test,data
 - **v1.0:** Initial implementation with working CSV download functionality
 - **v1.1:** Fixed text encoding issues for proper CSV formatting
 - **v1.2:** Added comprehensive error handling and documentation
+- **v2.0:** Added session-based isolation for concurrent users
+  - Enhanced table schema with session_id and created_at columns
+  - Automatic cleanup of temporary data after file creation
+  - Concurrent user support without data interference
+  - Improved error handling with session cleanup
