@@ -12,8 +12,8 @@ Use this checklist to ensure all prerequisites are met before configuring the to
   - [ ] Current role has necessary permissions
 
 - [ ] **Required Objects Created**
-  - [ ] Table: `SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (csv_data STRING)`
-  - [ ] Stage: `SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES`
+  - [ ] Table: `SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV` (with session_id, csv_data, created_at columns)
+  - [ ] Stage: `SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES` (with SSE encryption)
   - [ ] Procedure: `SNOWFLAKE_INTELLIGENCE.PUBLIC.CSV_TO_PRESIGNED_URL(VARCHAR)`
 
 - [ ] **Permissions Granted**
@@ -92,10 +92,15 @@ SNOWFLAKE_INTELLIGENCE
 ### Infrastructure Creation:
 ```sql
 -- Create all required objects
-CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (csv_data STRING);
-CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
+CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (
+    session_id STRING NOT NULL,
+    csv_data STRING NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
+);
+CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES
+  ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 
--- Deploy procedure (use csv_upload_procedure.sql)
+-- Deploy procedure (use csv_to_presigned_url_procedure.sql)
 ```
 
 ### Permission Grants:

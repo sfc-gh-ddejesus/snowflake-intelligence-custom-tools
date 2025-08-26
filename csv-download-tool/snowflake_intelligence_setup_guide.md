@@ -11,11 +11,16 @@ This guide walks you through configuring the CSV download custom tool in Snowfla
 The following objects MUST exist in your Snowflake account before the tool will work:
 
 ```sql
--- Create the temporary table for CSV processing
-CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (csv_data STRING);
+-- Create the temporary table for CSV processing with session isolation
+CREATE TABLE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_CSV (
+    session_id STRING NOT NULL,
+    csv_data STRING NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
+);
 
 -- Create the stage for file storage  
-CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES;
+CREATE STAGE SNOWFLAKE_INTELLIGENCE.PUBLIC.TEMP_FILES
+  ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE');
 
 -- Deploy the stored procedure
 -- (Use the code from csv_upload_procedure.sql)
